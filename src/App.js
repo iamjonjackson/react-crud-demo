@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  onMouseOver() {
-    console.log('Mouse over');
+  onSubmit(event) {
+    event.preventDefault();
+    alert('Submitted');
   }
   render() {
     const title = 'Demo React App';
@@ -22,6 +23,10 @@ class App extends Component {
             )
           })
         }
+        <form onSubmit={this.onSubmit}>
+          <input />
+        </form>
+        
       </div>
     );
   }
