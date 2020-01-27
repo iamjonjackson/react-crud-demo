@@ -18,6 +18,10 @@ const App = () => {
     setTodos([...todos, todo])
   }
 
+  const deleteTodo = id => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  }
+
   return (
     <div className="App">
       <h1>React Todo App</h1>
@@ -28,7 +32,7 @@ const App = () => {
         </div>
         <div className="col-6">
           <h3>View Todos</h3>
-          <TodoTable todos={todos} />
+          <TodoTable todos={todos} deleteTodo={deleteTodo} />
         </div>
       </div>
     </div>
