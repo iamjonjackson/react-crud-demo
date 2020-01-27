@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState} from 'react';
 import './App.css';
+import TodoTable from './tables/TodoTable';
 
 const App = () => {
+
+  const todoData = [
+    { id: 1, title: 'Task 1', description: '' },
+    { id: 2, title: 'Task 2', description: '' },
+    { id: 3, title: 'Task 3', description: 'more details here' },
+  ]
+
+  const [todos, setTodos] = useState(todoData)
+
   return (
     <div className="App">
       <h1>React Todo App</h1>
@@ -11,6 +21,7 @@ const App = () => {
         </div>
         <div className="col-6">
           <h3>View Todos</h3>
+          <TodoTable todos={todos} />
         </div>
       </div>
     </div>
