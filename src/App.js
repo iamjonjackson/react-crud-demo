@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
-import ListItems from './ListItems'
 import './App.css';
 
 class App extends Component {
-  onSubmit(event) {
-    event.preventDefault();
-    alert('Submitted');
-  }
   render() {
-    const items = [
-      'Item 1',
-      'Item 2',
-      'Item 3'
-    ];
-    const title = 'Demo React App';
+    const title = 'React Todo App';
     return (
       <div className="App">
         <h1>{title}</h1>
-        <ListItems
-          items={items}
-        />
-        <form onSubmit={this.onSubmit}>
-          <input />
-        </form>
+        <div className="row mt-4">
+          <div className="col-6">
+            <h3>Add Todo</h3>
+          </div>
+          <div className="col-6">
+            <h3>View Todos</h3>
+          </div>
+        </div>
       </div>
     );
   }
