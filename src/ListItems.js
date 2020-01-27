@@ -3,11 +3,7 @@ import React, { Component } from 'react';
 class ListItems extends Component {
 
   render() {
-    const items = [
-      'Item 1',
-      'Item 2',
-      'Item 3'
-    ];
+    const items = this.props.items;
     return (
       <div className="ListItems">
         {
