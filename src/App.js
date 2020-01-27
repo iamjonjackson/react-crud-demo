@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  onClick() {
-    alert('Clicked');
+  onMouseOver() {
+    console.log('Mouse over');
   }
   render() {
     const title = 'Demo React App';
@@ -18,7 +18,7 @@ class App extends Component {
         {
           items.map(item => {
             return (
-              <li onClick={this.onClick}>{item}</li>
+              <li key={item} onMouseOver={this.onMouseOver}>{item}</li>
             )
           })
         }
