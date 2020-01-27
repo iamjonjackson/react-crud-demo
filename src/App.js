@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  onclick() {
+    alert('Clicked');
+  }
   render() {
     const title = 'Demo React App';
     const items = [
@@ -15,7 +18,7 @@ class App extends Component {
         {
           items.map(item => {
             return (
-              <li>{item}</li>
+              <li onClick={this.onClick}>{item}</li>
             )
           })
         }
