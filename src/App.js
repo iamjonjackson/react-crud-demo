@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ListItems from './ListItems'
 import './App.css';
 
 class App extends Component {
@@ -8,25 +9,13 @@ class App extends Component {
   }
   render() {
     const title = 'Demo React App';
-    const items = [
-      'Item 1',
-      'Item 2',
-      'Item 3'
-    ];
     return (
       <div className="App">
         <h1>{title}</h1>
-        {
-          items.map(item => {
-            return (
-              <li key={item} onMouseOver={this.onMouseOver}>{item}</li>
-            )
-          })
-        }
+        <ListItems />
         <form onSubmit={this.onSubmit}>
           <input />
         </form>
-        
       </div>
     );
   }
