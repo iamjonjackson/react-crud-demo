@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ListItems extends Component {
 
   render() {
-    const items = this.props.items;
+    const {items} = this.props;
     return (
       <div className="ListItems">
         {
