@@ -61,7 +61,7 @@ const App = () => {
         </div>
         <div className="col-6">
           <h3>View Todos</h3>
-          <TodoTable todos={todos} deleteTodo={deleteTodo} editRow={editRow} />
+          <TodoTable todos={todos} deleteTodo={deleteTodo} editRow={editRow} editing={editing} />
         </div>
       </div>
     </div>
