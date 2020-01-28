@@ -16,7 +16,7 @@ const TodoTable = props => (
                 <td>{todo.title}</td>
                 <td>{todo.description}</td>
                 <td>
-                    <button className="m-1 btn btn-primary btn-sm">Edit</button>
+                    <button onClick={() => props.editRow(todo)} className="m-1 btn btn-primary btn-sm">Edit</button>
                     <button onClick={() => props.deleteTodo(todo.id)} className="m-1 btn btn-danger btn-sm">Delete</button>
                 </td>
                 </tr>

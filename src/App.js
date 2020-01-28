@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import './App.css';
 import TodoTable from './tables/TodoTable';
 import AddTodoForm from './forms/AddTodoForm';
+import EditTodoForm from './forms/EditTodoForm';
 
 const App = () => {
 
@@ -12,6 +13,20 @@ const App = () => {
   ]
 
   const [todos, setTodos] = useState(todoData)
+
+  const [editing, setEditing] = useState(false)
+  const initialFormState = { id: null, title: '', description: '' }
+  const [currentTodo, setCurrentTodo] = useState(initialFormState)
+
+  const editRow = todo => {
+    setEditing(true)
+    setCurrentTodo({ id: todo.id, title: todo.title, description: todo.description })
+  }
+
+  const updateTodo = (id, updatedTodo) => {
+    setEditing(false)
+    setTodos(todos.map(todo => (todo.id === id ? updatedTodo : todo)))
+  }
 
   const addTodo = todo => {
     todo.id = todos.length + 1
@@ -27,12 +42,26 @@ const App = () => {
       <h1>React Todo App</h1>
       <div className="row mt-4">
         <div className="col-6">
-          <h3>Add Todo</h3>
-          <AddTodoForm addTodo={addTodo} />
+          {editing ? (
+            <div>
+              <h3>Edit Todo</h3>
+              <EditTodoForm
+                editing={editing}
+                setEditing={setEditing}
+                currentTodo={currentTodo}
+                updateTodo={updateTodo}
+              />
+            </div>
+          ) : (
+            <div>
+              <h3>Add Todo</h3>
+              <AddTodoForm addTodo={addTodo} />
+            </div>
+          )}
         </div>
         <div className="col-6">
           <h3>View Todos</h3>
-          <TodoTable todos={todos} deleteTodo={deleteTodo} />
+          <TodoTable todos={todos} deleteTodo={deleteTodo} editRow={editRow} />
         </div>
       </div>
     </div>
